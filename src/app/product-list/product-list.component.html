@@ -1,10 +1,20 @@
-<p>product-list works!</p>
-<h2>Products</h2>
+<p>Lista de Productos!</p>
+<h2>Productos</h2>
 
-<div *ngFor="let product of products">
+<div *ngFor="let d of products">
 
   <h3>
-      {{ product.name }}
+      {{ d.name }}
+
+      <a [routerLink]="['/products', d.id]">
+        More Details
+      </a>
   </h3>
+   <p *ngIf="d.description">
+    Description: {{ d.description }}
+    </p>
+  <button (click)="share(d.id)">
+    Share
+  </button>
 
 </div>
